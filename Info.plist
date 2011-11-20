@@ -32,7 +32,31 @@
 		<key>description</key>
 		<string>Bookmarks &amp; History for Firefox</string>
 		<key>extendedDescription</key>
-		<string>Bookmarks for Firefox &amp; Mozilla&lt;P&gt;&lt;h3&gt;Enhancements&lt;/h3&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Adds a new preset to the Catalog that imports bookmarks from Firefox, Mozilla, and Netscape&lt;li&gt;Allows Firefox to handle javascript bookmarklets&lt;/ul&gt;</string>
+		<string>&lt;h3&gt;Firefox Module&lt;/h3&gt;
+
+&lt;p&gt;This plugin gives you access to your Firefox bookmarks and history. It also provides a &quot;Current Web Page (Firefox)&quot; proxy object.&lt;/p&gt;
+
+&lt;p&gt;This plugin adds a &quot;Firefox&quot; catalog group, with &quot;Firefox Bookmarks&quot; and &quot;Firefox History&quot; as subentries.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Firefox Bookmarks&lt;/strong&gt; includes all the URLs you bookmarked, without any folder structure or tags you might have applied.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Firefox History&lt;/strong&gt; contains the last 200 URLs you visited. This is disabled by default, but can be enabled easily in the catalog section of the preferences. The history is limited to the most recent 200 URLs, so the Quicksilver catalog doesn&apos;t get too large. With too many items in the catalog, Quicksilver slows down considerably. If this isn&apos;t enough of your browsing history and Quicksilver still feels fast enough, you can change this number. Currently there is no user interface for it, but you can change it manually. Got to:
+&lt;pre&gt;~/Library/Application Support/Quicksilver/PlugIns/&lt;/pre&gt;
+find
+&lt;pre&gt;com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin&lt;/pre&gt;
+right-click -&gt; &quot;Show Package Contents&quot;, then open
+&lt;pre&gt;Contents/Info.plist&lt;/pre&gt;
+In there, find the entry 
+&lt;pre&gt;QSPresetAdditions -&gt; Item 0 -&gt; children -&gt; Item 1 -&gt; settings -&gt; historySize&lt;/pre&gt;
+And change the number to something different. After restarting Quicksilver and rescanning the catalog, the new settings will be applied. Sorry for the inconvenience. Maybe there&apos;ll be a user interface for that in the future.&lt;/p&gt;
+
+&lt;p&gt;It also adds a proxy object that contains the webpage you have currently open in Firefox. It&apos;s called &quot;&lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt;&quot; and works just like the one for Safari. One limitation though: There might be a slight delay. Firefox only updates this information every few seconds (every 15 seconds by default, I believe), and the proxy object only has access to this delayed information. For me, this was rarely a problem. But if you want to reduce this delay, you can do this by changing a hidden preference in Firefox. To do this, type 
+&lt;pre&gt;about:config&lt;/pre&gt; 
+in Firefox&apos;s address bar. You&apos;ll get to a page where you can modify all kinds of weird options for Firefox. Don&apos;t mess with them, unless you know what you are doing! Now type 
+&lt;pre&gt;sessionstore.interval&lt;/pre&gt;
+in the filter-field. The 
+&lt;pre&gt;browser.sessionstore.interval&lt;/pre&gt; 
+value is in milliseconds. Change it to something smaller. But making it too small might slow down Firefox. So be careful!&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>org.mozilla.firefox</string>
 		<key>qsversion</key>
