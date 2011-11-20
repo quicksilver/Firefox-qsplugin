@@ -11,13 +11,10 @@
 		14206B5610F9C2A5005ABCBC /* QSEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14206B5210F9C2A5005ABCBC /* QSEffects.framework */; };
 		14206B5710F9C2A5005ABCBC /* QSFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14206B5310F9C2A5005ABCBC /* QSFoundation.framework */; };
 		14206B5810F9C2A5005ABCBC /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14206B5410F9C2A5005ABCBC /* QSInterface.framework */; };
-		2E68278A1476E16D0056CE09 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827821476E16D0056CE09 /* Common.xcconfig */; };
-		2E68278B1476E16D0056CE09 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827831476E16D0056CE09 /* Debug.xcconfig */; };
-		2E68278C1476E16D0056CE09 /* Developer.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827841476E16D0056CE09 /* Developer.xcconfig */; };
-		2E68278D1476E16D0056CE09 /* QSPlugIn.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827851476E16D0056CE09 /* QSPlugIn.xcconfig */; };
-		2E68278E1476E16D0056CE09 /* QSPlugIn_Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827861476E16D0056CE09 /* QSPlugIn_Debug.xcconfig */; };
-		2E68278F1476E16D0056CE09 /* QSPlugIn_Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827871476E16D0056CE09 /* QSPlugIn_Release.xcconfig */; };
-		2E6827901476E16D0056CE09 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E6827891476E16D0056CE09 /* Release.xcconfig */; };
+		2EE7040114795ACE006EBF76 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 2EE703FF14795ACE006EBF76 /* sqlite3.c */; };
+		2EE7043714795FF2006EBF76 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7043214795FF2006EBF76 /* FMDatabase.m */; };
+		2EE7043814795FF2006EBF76 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7043414795FF2006EBF76 /* FMDatabaseAdditions.m */; };
+		2EE7043914795FF2006EBF76 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7043614795FF2006EBF76 /* FMResultSet.m */; };
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		E1EAB046068128A200774DFF /* QSFirefoxPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB045068128A200774DFF /* QSFirefoxPlugIn.m */; };
 /* End PBXBuildFile section */
@@ -35,6 +32,14 @@
 		2E6827871476E16D0056CE09 /* QSPlugIn_Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = QSPlugIn_Release.xcconfig; sourceTree = "<group>"; };
 		2E6827881476E16D0056CE09 /* Quicksilver.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quicksilver.pch; sourceTree = "<group>"; };
 		2E6827891476E16D0056CE09 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		2EE703FF14795ACE006EBF76 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = "sqlite-amalgamation/sqlite3.c"; sourceTree = "<group>"; };
+		2EE7040014795ACE006EBF76 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3.h; path = "sqlite-amalgamation/sqlite3.h"; sourceTree = "<group>"; };
+		2EE7043114795FF2006EBF76 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		2EE7043214795FF2006EBF76 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		2EE7043314795FF2006EBF76 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		2EE7043414795FF2006EBF76 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		2EE7043514795FF2006EBF76 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		2EE7043614795FF2006EBF76 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC9740486D14A00FE50C9 /* Firefox Module.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Firefox Module.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -114,9 +119,33 @@
 			path = ../Quicksilver/Quicksilver/Configuration;
 			sourceTree = SOURCE_ROOT;
 		};
+		2EE7040D14795AD7006EBF76 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				2EE703FF14795ACE006EBF76 /* sqlite3.c */,
+				2EE7040014795ACE006EBF76 /* sqlite3.h */,
+			);
+			name = SQLite;
+			sourceTree = "<group>";
+		};
+		2EE7043014795FF2006EBF76 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7043114795FF2006EBF76 /* FMDatabase.h */,
+				2EE7043214795FF2006EBF76 /* FMDatabase.m */,
+				2EE7043314795FF2006EBF76 /* FMDatabaseAdditions.h */,
+				2EE7043414795FF2006EBF76 /* FMDatabaseAdditions.m */,
+				2EE7043514795FF2006EBF76 /* FMResultSet.h */,
+				2EE7043614795FF2006EBF76 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 		32DBCF9E0370C38000C91783 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2EE7043014795FF2006EBF76 /* FMDB */,
+				2EE7040D14795AD7006EBF76 /* SQLite */,
 				E1EAB047068128A800774DFF /* QSFirefoxPlugIn.h */,
 				E1EAB045068128A200774DFF /* QSFirefoxPlugIn.m */,
 			);
@@ -174,13 +203,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E68278A1476E16D0056CE09 /* Common.xcconfig in Resources */,
-				2E68278B1476E16D0056CE09 /* Debug.xcconfig in Resources */,
-				2E68278C1476E16D0056CE09 /* Developer.xcconfig in Resources */,
-				2E68278D1476E16D0056CE09 /* QSPlugIn.xcconfig in Resources */,
-				2E68278E1476E16D0056CE09 /* QSPlugIn_Debug.xcconfig in Resources */,
-				2E68278F1476E16D0056CE09 /* QSPlugIn_Release.xcconfig in Resources */,
-				2E6827901476E16D0056CE09 /* Release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1EAB046068128A200774DFF /* QSFirefoxPlugIn.m in Sources */,
+				2EE7040114795ACE006EBF76 /* sqlite3.c in Sources */,
+				2EE7043714795FF2006EBF76 /* FMDatabase.m in Sources */,
+				2EE7043814795FF2006EBF76 /* FMDatabaseAdditions.m in Sources */,
+				2EE7043914795FF2006EBF76 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +249,11 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_APPS_DIR)/Quicksilver.app/Contents/Frameworks\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../fmdb/build/Release\"";
 				OTHER_LDFLAGS = "-bundle";
 				PRODUCT_NAME = "Firefox Module";
 			};
@@ -236,10 +267,13 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_APPS_DIR)/Quicksilver.app/Contents/Frameworks\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../fmdb/build/Release\"";
 				OTHER_LDFLAGS = "-bundle";
 				PRODUCT_NAME = "Firefox Module";
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};

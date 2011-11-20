@@ -9,6 +9,8 @@
 #import <QSCore/QSObject.h>
 #import "QSFirefoxPlugIn.h"
 #import <QSCore/QSParser.h>
+#import "FMDatabase.h"
+#import "FMResultSet.h"
 
 #define kQSFirefoxPlugInType @"QSFirefoxPlugInType"
 
@@ -17,8 +19,12 @@
 }
 @end
 
-@interface QSMorkMozillaHistoryParser : QSParser
+@interface QSFirefoxBookmarksParser : QSParser
 {
 }
 @end
 
+//@interface QSFirefoxHistoryParser : QSParser
+//{
+//}
+//@end
