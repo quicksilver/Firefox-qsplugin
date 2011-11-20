@@ -2,9 +2,6 @@
 //  QSFirefoxPlugIn.m
 //  QSFirefoxPlugIn
 //
-//  Created by Nicholas Jitkoff on 4/6/05.
-//  Copyright __MyCompanyName__ 2005. All rights reserved.
-//
 
 #import "QSFirefoxPlugIn.h"
 
@@ -22,7 +19,6 @@
 @end
 
 @implementation QSFirefoxBookmarksParser
-
 - (BOOL)validParserForPath:(NSString *)path {
 	return [[path lastPathComponent] isEqualToString:@"places.sqlite"];
 }
@@ -39,8 +35,27 @@
 	
 	return [QSFirefoxPlacesParser executeSql:query onFile:path];
 }
-
 @end
+
+@implementation QSFirefoxHistoryParser
+- (BOOL)validParserForPath:(NSString *)path {
+	return [[path lastPathComponent] isEqualToString:@"places.sqlite"];
+}
+
+- (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
+	NSString *query = [NSString stringWithFormat:@"SELECT "
+					   "places.title AS title, "
+					   "places.url AS url "
+					   "FROM moz_historyvisits AS history "
+					   "LEFT JOIN moz_places AS places ON places.id = history.place_id "
+					   "ORDER BY visit_date DESC "
+					   "LIMIT %d", 
+					   [[settings objectForKey:@"historySize"] intValue]];
+
+	return [QSFirefoxPlacesParser executeSql:query onFile:path];
+}
+@end
+
 
 @implementation QSFirefoxPlacesParser
 

@@ -2,9 +2,6 @@
 //  QSFirefoxPlugIn.h
 //  QSFirefoxPlugIn
 //
-//  Created by Nicholas Jitkoff on 4/6/05.
-//  Copyright __MyCompanyName__ 2005. All rights reserved.
-//
 
 #import <QSCore/QSObject.h>
 #import "QSFirefoxPlugIn.h"
@@ -24,10 +21,10 @@
 }
 @end
 
-//@interface QSFirefoxHistoryParser : QSParser
-//{
-//}
-//@end
+@interface QSFirefoxHistoryParser : QSParser
+{
+}
+@end
 
 /**
  Simple class to access Firefox's places.sqlite DB.

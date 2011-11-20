@@ -70,6 +70,37 @@
 						<string>QSFirefoxBookmarksParser</string>
 						<key>path</key>
 						<string>~/Library/Application Support/Firefox/Profiles/*/places.sqlite</string>
+						<key>skipItem</key>
+						<integer>1</integer>
+					</dict>
+					<key>source</key>
+					<string>QSFileSystemObjectSource</string>
+				</dict>
+				<dict>
+					<key>ID</key>
+					<string>QSPresetFirefoxHistory</string>
+					<key>icon</key>
+					<string>org.mozilla.firefox</string>
+					<key>enabled</key>
+					<false/>
+					<key>name</key>
+					<string>Firefox History</string>
+					<key>requiresBundle</key>
+					<string>org.mozilla.firefox</string>
+					<key>requiresSettingsPath</key>
+					<true/>
+					<key>settings</key>
+					<dict>
+						<key>fileContents</key>
+						<string>Firefox History</string>
+						<key>historySize</key>
+						<integer>200</integer>
+						<key>parser</key>
+						<string>QSFirefoxHistoryParser</string>
+						<key>path</key>
+						<string>~/Library/Application Support/Firefox/Profiles/*/places.sqlite</string>
+						<key>skipItem</key>
+						<integer>1</integer>
 					</dict>
 					<key>source</key>
 					<string>QSFileSystemObjectSource</string>
@@ -87,6 +118,8 @@
 	<dict>
 		<key>QSFSParsers</key>
 		<dict>
+			<key>QSFirefoxHistoryParser</key>
+			<string>QSFirefoxHistoryParser</string>
 			<key>QSFirefoxBookmarksParser</key>
 			<string>QSFirefoxBookmarksParser</string>
 		</dict>
