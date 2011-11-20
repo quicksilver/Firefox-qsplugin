@@ -43,7 +43,7 @@
 }
 
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
-	NSString *query = [NSString stringWithFormat:@"SELECT "
+	NSString *query = [NSString stringWithFormat:@"SELECT DISTINCT "
 					   "places.title AS title, "
 					   "places.url AS url "
 					   "FROM moz_historyvisits AS history "
