@@ -28,16 +28,33 @@
 }
 
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
-	NSMutableArray *objects=[NSMutableArray arrayWithCapacity:0];
+	NSString *query = @"SELECT "
+						"bookmarks.title AS title, "
+						"places.url AS url "
+						"FROM moz_bookmarks AS bookmarks "
+						"LEFT JOIN moz_places AS places ON places.id = bookmarks.fk "
+						"WHERE bookmarks.fk IS NOT NULL "
+						"AND bookmarks.title IS NOT NULL "
+						"ORDER BY bookmarks.title";
+	
+	return [QSFirefoxPlacesParser executeSql:query onFile:path];
+}
 
-	// copy places.sqlite
+@end
+
+@implementation QSFirefoxPlacesParser
+
++ (NSArray *) executeSql:(NSString *)query onFile:(NSString *)path {
+	NSMutableArray *objects=[NSMutableArray arrayWithCapacity:0];
 	NSFileManager *manager = [NSFileManager defaultManager];
 	NSString *tempPath = [NSTemporaryDirectory() stringByAppendingString:@"QSFirefoxPlaces.sqlite"];
 	NSError *err;
 	BOOL status;
-
+	
 	// make sure tmp-copy of places.sqlite isn't there
 	status = [manager removeItemAtPath:tempPath error:&err];
+	
+	// copy places.sqlite so it wont be locked when Firefox is running
 	status = [manager copyItemAtPath:path toPath:tempPath error:&err];
 	if (!status) {
 		NSLog(@"Error while copying Firefox places.sqlite: %@", err);
@@ -50,17 +67,7 @@
 		return objects;
 	}
 	
-	// build SQL query
-	NSString *url, *title;
-	QSObject *newObject;
-	NSString *query = @"SELECT "
-					   "bookmarks.title AS title, "
-					   "places.url AS url "
-					   "FROM moz_bookmarks AS bookmarks "
-					   "LEFT JOIN moz_places AS places ON places.id = bookmarks.fk "
-					   "WHERE bookmarks.fk IS NOT NULL "
-					   "AND bookmarks.title IS NOT NULL "
-					   "ORDER BY bookmarks.title";
+	// execute SQL query
 	FMResultSet *rs = [db executeQuery:query];
 	if ([db hadError]) {
 		NSLog(@"Error while reading Firefox's places.sqlite DB. Error %d: %@", [db lastErrorCode], [db lastErrorMessage]);
@@ -68,10 +75,12 @@
 	}
 	
 	// build QSObjects
+	NSString *url, *title;
+	QSObject *newObject;
 	while ([rs next]) {
 		title = [rs stringForColumn:@"title"];
 		url = [rs stringForColumn:@"url"];
-
+		
 		newObject = [QSObject URLObjectWithURL:url title:title];
 		[objects addObject:newObject];
 	}
@@ -89,5 +98,7 @@
 	return objects;
 }
 
+
 @end
+
 
