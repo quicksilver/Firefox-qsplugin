@@ -16,6 +16,7 @@
 		2EE7043814795FF2006EBF76 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7043414795FF2006EBF76 /* FMDatabaseAdditions.m */; };
 		2EE7043914795FF2006EBF76 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7043614795FF2006EBF76 /* FMResultSet.m */; };
 		2EE7047214796D4C006EBF76 /* QSParser.name.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE7047114796D4C006EBF76 /* QSParser.name.strings */; };
+		2EE7058714797D3D006EBF76 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7058314797D31006EBF76 /* JSONKit.m */; };
 		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
 		E1EAB046068128A200774DFF /* QSFirefoxPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB045068128A200774DFF /* QSFirefoxPlugIn.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,10 @@
 		2EE7043514795FF2006EBF76 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		2EE7043614795FF2006EBF76 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		2EE7047114796D4C006EBF76 /* QSParser.name.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = QSParser.name.strings; sourceTree = "<group>"; };
+		2EE7058114797D31006EBF76 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		2EE7058214797D31006EBF76 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		2EE7058314797D31006EBF76 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		2EE7058414797D31006EBF76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1AC9740486D14A00FE50C9 /* Firefox Module.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Firefox Module.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -144,10 +149,22 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		2EE7055B14797D30006EBF76 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7058114797D31006EBF76 /* CHANGELOG.md */,
+				2EE7058214797D31006EBF76 /* JSONKit.h */,
+				2EE7058314797D31006EBF76 /* JSONKit.m */,
+				2EE7058414797D31006EBF76 /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 		32DBCF9E0370C38000C91783 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				2EE7043014795FF2006EBF76 /* FMDB */,
+				2EE7055B14797D30006EBF76 /* JSONKit */,
 				2EE7040D14795AD7006EBF76 /* SQLite */,
 				E1EAB047068128A800774DFF /* QSFirefoxPlugIn.h */,
 				E1EAB045068128A200774DFF /* QSFirefoxPlugIn.m */,
@@ -233,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE7058714797D3D006EBF76 /* JSONKit.m in Sources */,
 				E1EAB046068128A200774DFF /* QSFirefoxPlugIn.m in Sources */,
 				2EE7040114795ACE006EBF76 /* sqlite3.c in Sources */,
 				2EE7043714795FF2006EBF76 /* FMDatabase.m in Sources */,

@@ -16,6 +16,33 @@
 	if (errorDict) NSLog(@"Run Script: %@",[errorDict objectForKey:@"NSAppleScriptErrorMessage"]);
 }
 
+- (id)resolveProxyObject:(id)proxy {
+	// reading Firefox's sessionsstore.js
+	NSString *path = [@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js" stringByResolvingWildcardsInPath];
+	NSError *err;
+	NSString *jsonString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
+	if (!jsonString) {
+		NSLog(@"Error when reading file: %@", err);
+	}
+	
+	// parsing JSON
+	NSDictionary *sessionstore = [jsonString objectFromJSONString];
+	
+	// traversing JSON path to current web page
+	NSArray *windows = [sessionstore objectForKey:@"windows"];
+	int selectedWindow =[[sessionstore objectForKey:@"selectedWindow"] intValue];
+	NSDictionary *window = [windows objectAtIndex:selectedWindow-1];
+	NSArray *tabs = [window objectForKey:@"tabs"];
+	int selectedTab =[[window objectForKey:@"selected"] intValue];
+	NSDictionary *tab = [tabs objectAtIndex:selectedTab-1];
+	NSArray *entries = [tab objectForKey:@"entries"];
+	NSDictionary *entry = [entries lastObject];
+	NSString *url = [entry objectForKey:@"url"];
+	
+	return [QSObject URLObjectWithURL:url title:nil];
+}
+
+
 @end
 
 @implementation QSFirefoxBookmarksParser

@@ -8,6 +8,7 @@
 #import <QSCore/QSParser.h>
 #import "FMDatabase.h"
 #import "FMResultSet.h"
+#import "JSONKit.h"
 
 #define kQSFirefoxPlugInType @"QSFirefoxPlugInType"
 

@@ -116,6 +116,28 @@
 	</array>
 	<key>QSRegistration</key>
 	<dict>
+		<key>QSObjectHandlers</key>
+		<dict>
+			<key>QSFirefoxPlugIn</key>
+			<string>QSFirefoxPlugIn</string>
+		</dict>
+		<key>QSProxies</key>
+		<dict>
+			<key>QSFirefoxCurrentWebPageProxy</key>
+			<dict>
+				<key>icon</key>
+				<string>org.mozilla.firefox</string>
+				<key>name</key>
+				<string>Current Web Page (Firefox)</string>
+				<key>providerClass</key>
+				<string>QSFirefoxPlugIn</string>
+				<key>types</key>
+				<array>
+					<string>Apple URL pasteboard type</string>
+					<string>NSStringPboardType</string>
+				</array>
+			</dict>
+		</dict>
 		<key>QSFSParsers</key>
 		<dict>
 			<key>QSFirefoxHistoryParser</key>
