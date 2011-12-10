@@ -268,7 +268,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827861476E16D0056CE09 /* QSPlugIn_Debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -289,7 +289,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827871476E16D0056CE09 /* QSPlugIn_Release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -309,12 +309,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827831476E16D0056CE09 /* Debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_PREPROCESS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = /tmp/QS/build;
 			};
@@ -324,13 +323,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827891476E16D0056CE09 /* Release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				INFOPLIST_PREPROCESS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SYMROOT = /tmp/QS/build;
 			};
 			name = Release;
