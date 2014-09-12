@@ -3,9 +3,7 @@
 //  QSFirefoxPlugIn
 //
 
-#import <QSCore/QSObject.h>
 #import "QSFirefoxPlugIn.h"
-#import <QSCore/QSParser.h>
 #import "FMDatabase.h"
 #import "FMResultSet.h"
 #import "JSONKit.h"

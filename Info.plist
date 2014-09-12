@@ -11,7 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Firefox Module</string>
+	<string>Firefox Plugin</string>
+	<key>Bundle Display Name</key>
+	<string>Firefox</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -59,8 +61,6 @@ in the filter-field. The
 value is in milliseconds. Change it to something smaller. But making it too small might slow down Firefox. So be careful!&lt;/p&gt;</string>
 		<key>icon</key>
 		<string>org.mozilla.firefox</string>
-		<key>qsversion</key>
-		<string>29E0</string>
 		<key>relatedBundles</key>
 		<array>
 			<string>org.mozilla.firefox</string>
