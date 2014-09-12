@@ -196,7 +196,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = 7F07AFFE085E433100E2AFC4 /* Build configuration list for PBXProject "QSFirefoxPlugIn" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -303,6 +303,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_PREPROCESS = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
