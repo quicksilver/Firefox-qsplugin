@@ -7,7 +7,7 @@
 
 @implementation QSFirefoxPlugIn
 
-- (void) performJavaScript:(NSString *)jScript{
+- (void)performJavaScript:(NSString *)jScript {
 	//NSLog(@"JAVASCRIPT perform: %@",jScript);
 	NSDictionary *errorDict=nil;
 	NSAppleScript *script=[[[NSAppleScript alloc]initWithSource:[NSString stringWithFormat:@"tell application \"Firefox\" to Get URL \"%@\"",jScript]]autorelease];
@@ -37,9 +37,10 @@
 	NSDictionary *tab = [tabs objectAtIndex:selectedTab-1];
 	NSArray *entries = [tab objectForKey:@"entries"];
 	NSDictionary *entry = [entries lastObject];
+    NSString *title = [entry objectForKey:@"title"];
 	NSString *url = [entry objectForKey:@"url"];
 	
-	return [QSObject URLObjectWithURL:url title:nil];
+	return [QSObject URLObjectWithURL:url title:title];
 }
 
 

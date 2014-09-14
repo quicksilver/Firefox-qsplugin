@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Bundle Display Name</key>
+	<string>Firefox</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -11,15 +13,15 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Firefox Module</string>
+	<string>Firefox Plugin</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.5.1</string>
+	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>A7</string>
+	<string>AD</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2004, Blacktree, Inc.</string>
+	<string>Copyright © 2014, QSApp.</string>
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
@@ -32,35 +34,36 @@
 		<key>description</key>
 		<string>Bookmarks &amp; History for Firefox</string>
 		<key>extendedDescription</key>
-		<string>&lt;h3&gt;Firefox Module&lt;/h3&gt;
-
-&lt;p&gt;This plugin gives you access to your Firefox bookmarks and history for more recent Firefox versions (3.0 and later). It also provides a &quot;Current Web Page (Firefox)&quot; proxy object.&lt;/p&gt;
-
-&lt;p&gt;This plugin adds a &quot;Firefox&quot; catalog group, with &quot;Firefox Bookmarks&quot; and &quot;Firefox History&quot; as subentries.&lt;/p&gt;
-
+		<string>&lt;h3&gt;Firefox Plugin&lt;/h3&gt;
+&lt;p&gt;This plugin gives you access to your Firefox bookmarks and history for more recent Firefox versions (3.0 and later). It also provides a "Current Web Page (Firefox)" proxy object.&lt;/p&gt;
+&lt;p&gt;This plugin adds a "Firefox" catalog group, with "Firefox Bookmarks" and "Firefox History" as subentries.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Firefox Bookmarks&lt;/strong&gt; includes all the URLs you bookmarked, without any folder structure or tags you might have applied.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Firefox History&lt;/strong&gt; contains the last 200 URLs you visited. This is disabled by default, but can be enabled easily in the catalog section of the preferences. The history is limited to the most recent 200 URLs, so the Quicksilver catalog doesn&apos;t get too large. With too many items in the catalog, Quicksilver slows down considerably. If this isn&apos;t enough of your browsing history and Quicksilver still feels fast enough, you can change this number. Currently there is no user interface for it, but you can change it manually. Got to:
-&lt;pre&gt;~/Library/Application Support/Quicksilver/PlugIns/&lt;/pre&gt;
-find
-&lt;pre&gt;com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin&lt;/pre&gt;
-right-click -&gt; &quot;Show Package Contents&quot;, then open
-&lt;pre&gt;Contents/Info.plist&lt;/pre&gt;
-In there, find the entry 
-&lt;pre&gt;QSPresetAdditions -&gt; Item 0 -&gt; children -&gt; Item 1 -&gt; settings -&gt; historySize&lt;/pre&gt;
-And change the number to something different. After restarting Quicksilver and rescanning the catalog, the new settings will be applied. Sorry for the inconvenience. Maybe there&apos;ll be a user interface for that in the future.&lt;/p&gt;
-
-&lt;p&gt;It also adds a proxy object that contains the webpage you have currently open in Firefox. It&apos;s called &quot;&lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt;&quot; and works just like the one for Safari. One limitation though: There might be a slight delay. Firefox only updates this information every few seconds (every 15 seconds by default, I believe), and the proxy object only has access to this delayed information. For me, this was rarely a problem. But if you really need to reduce this delay, you can do this by changing a hidden preference in Firefox. To do this, type 
-&lt;pre&gt;about:config&lt;/pre&gt; 
-in Firefox&apos;s address bar. You&apos;ll get to a page where you can modify all kinds of weird options for Firefox. Don&apos;t mess with them, unless you know what you are doing! Now type 
-&lt;pre&gt;sessionstore.interval&lt;/pre&gt;
-in the filter-field. The 
-&lt;pre&gt;browser.sessionstore.interval&lt;/pre&gt; 
-value is in milliseconds. Change it to something smaller. But making it too small might slow down Firefox. So be careful!&lt;/p&gt;</string>
+&lt;p&gt;&lt;strong&gt;Firefox History&lt;/strong&gt; contains the last 200 URLs you visited.&lt;/p&gt;
+&lt;p&gt;This is disabled by default, but can be enabled easily in the catalog section of the preferences.&lt;/p&gt;
+&lt;p&gt;The history is limited to the most recent 200 URLs, so the Quicksilver catalog doesn't get too large.
+With too many items in the catalog, Quicksilver slows down considerably.&lt;/p&gt;
+&lt;p&gt;If this isn't enough of your browsing history and Quicksilver still feels fast enough, you can change this number. Currently there is no user interface for it, but you can change it manually. Got to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to &lt;code&gt;~/Library/Application Support/Quicksilver/PlugIns/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;find &lt;code&gt;com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;right-click -&amp;gt; "Show Package Contents"&lt;/li&gt;
+&lt;li&gt;then open &lt;code&gt;Contents/Info.plist&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In there, find the entry  &lt;code&gt;QSPresetAdditions -&amp;gt; Item 0 -&amp;gt; children -&amp;gt; Item 1 -&amp;gt; settings -&amp;gt; historySize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;change the number to something different.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After restarting Quicksilver and rescanning the catalog, the new settings will be applied. Sorry for the inconvenience. Maybe there'll be a user interface for that in the future.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The plugin also adds a proxy object that contains the webpage you have currently open in Firefox.
+It's called "&lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt;" and works just like the one for Safari.
+One limitation though: There might be a slight delay. Firefox only updates this information every few seconds (every 15 seconds by default, I believe), and the proxy object only has access to this delayed information. For me, this was rarely a problem. But if you really need to reduce this delay, you can do this by changing a hidden preference in Firefox.
+To do this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;type  &lt;code&gt;about:config&lt;/code&gt; in Firefox's address bar. (You'll get to a page where you can modify all kinds of weird options for Firefox. Don't mess with them, unless you know what you are doing!)&lt;/li&gt;
+&lt;li&gt;Now type &lt;code&gt;sessionstore.interval&lt;/code&gt; in the filter-field.&lt;/li&gt;
+&lt;li&gt;The  &lt;code&gt;browser.sessionstore.interval&lt;/code&gt; value is in milliseconds. Change it to something smaller. But making it too small might slow down Firefox. So be careful!&lt;/li&gt;
+&lt;/ul&gt;</string>
 		<key>icon</key>
 		<string>org.mozilla.firefox</string>
-		<key>qsversion</key>
-		<string>29E0</string>
 		<key>relatedBundles</key>
 		<array>
 			<string>org.mozilla.firefox</string>
@@ -76,10 +79,10 @@ value is in milliseconds. Change it to something smaller. But making it too smal
 				<dict>
 					<key>ID</key>
 					<string>QSPresetFirefoxBookmarks</string>
-					<key>icon</key>
-					<string>org.mozilla.firefox</string>
 					<key>enabled</key>
 					<true/>
+					<key>icon</key>
+					<string>org.mozilla.firefox</string>
 					<key>name</key>
 					<string>Firefox Bookmarks</string>
 					<key>requiresBundle</key>
@@ -103,10 +106,10 @@ value is in milliseconds. Change it to something smaller. But making it too smal
 				<dict>
 					<key>ID</key>
 					<string>QSPresetFirefoxHistory</string>
-					<key>icon</key>
-					<string>org.mozilla.firefox</string>
 					<key>enabled</key>
 					<false/>
+					<key>icon</key>
+					<string>org.mozilla.firefox</string>
 					<key>name</key>
 					<string>Firefox History</string>
 					<key>requiresBundle</key>
@@ -140,6 +143,13 @@ value is in milliseconds. Change it to something smaller. But making it too smal
 	</array>
 	<key>QSRegistration</key>
 	<dict>
+		<key>QSFSParsers</key>
+		<dict>
+			<key>QSFirefoxBookmarksParser</key>
+			<string>QSFirefoxBookmarksParser</string>
+			<key>QSFirefoxHistoryParser</key>
+			<string>QSFirefoxHistoryParser</string>
+		</dict>
 		<key>QSObjectHandlers</key>
 		<dict>
 			<key>QSFirefoxPlugIn</key>
@@ -162,18 +172,16 @@ value is in milliseconds. Change it to something smaller. But making it too smal
 				</array>
 			</dict>
 		</dict>
-		<key>QSFSParsers</key>
-		<dict>
-			<key>QSFirefoxHistoryParser</key>
-			<string>QSFirefoxHistoryParser</string>
-			<key>QSFirefoxBookmarksParser</key>
-			<string>QSFirefoxBookmarksParser</string>
-		</dict>
 		<key>QSWebBrowserMediators</key>
 		<dict>
 			<key>org.mozilla.firefox</key>
 			<string>QSFirefoxPlugIn</string>
 		</dict>
+	</dict>
+	<key>QSRequirements</key>
+	<dict>
+		<key>version</key>
+		<string>4001</string>
 	</dict>
 </dict>
 </plist>

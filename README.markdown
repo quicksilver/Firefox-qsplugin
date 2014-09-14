@@ -1,3 +1,10 @@
+Firefox Plug-in
+===============
+
+This plug-in depends on submodules. Before building, run
+
+    git submodule init && git submodule update
+
 About Quicksilver Plugins on Github
 ===================================
 
