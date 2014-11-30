@@ -46,7 +46,7 @@
 		2EE7058314797D31006EBF76 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		2EE7058414797D31006EBF76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1AC9740486D14A00FE50C9 /* Firefox Plugin.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Firefox Plugin.qsplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1AC9740486D14A00FE50C9 /* .bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = .bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E1EAB045068128A200774DFF /* QSFirefoxPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSFirefoxPlugIn.m; sourceTree = "<group>"; };
 		E1EAB047068128A800774DFF /* QSFirefoxPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = QSFirefoxPlugIn.h; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		1ED78706FE9D4A0611CA0C5A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1AC9740486D14A00FE50C9 /* Firefox Plugin.qsplugin */,
+				8D1AC9740486D14A00FE50C9 /* .bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 			name = "Firefox Plugin";
 			productInstallPath = "$(HOME)/Developer/Palettes";
 			productName = QSFirefoxPlugIn;
-			productReference = 8D1AC9740486D14A00FE50C9 /* Firefox Plugin.qsplugin */;
+			productReference = 8D1AC9740486D14A00FE50C9 /* .bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +196,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 			};
 			buildConfigurationList = 7F07AFFE085E433100E2AFC4 /* Build configuration list for PBXProject "QSFirefoxPlugIn" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -266,6 +266,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827851476E16D0056CE09 /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -285,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827851476E16D0056CE09 /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",

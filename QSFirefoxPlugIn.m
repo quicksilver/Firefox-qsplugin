@@ -18,7 +18,19 @@
 
 - (id)resolveProxyObject:(id)proxy {
 	// reading Firefox's sessionsstore.js
-	NSString *path = [@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js" stringByResolvingWildcardsInPath];
+    static NSString *path = nil;
+    if (!path) {
+        NSFileManager *fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js" stringByResolvingWildcardsInPath]]) {
+            path = [[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js" stringByResolvingWildcardsInPath] retain];
+        } else if ([fm fileExistsAtPath:[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore-backups/recovery.js" stringByResolvingWildcardsInPath]]) {
+            path = [[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore-backups/recovery.js" stringByResolvingWildcardsInPath] retain];
+        }
+    }
+    if (!path) {
+        QSShowAppNotifWithAttributes(@"QSFirefoxPlugin", NSLocalizedStringForThisBundle(@"Unable to locate Session Store", @"notif title"), NSLocalizedStringForThisBundle(@"Unable to locate the Session Store file for Firefox", @"notif message"));
+        return nil;
+    }
 	NSError *err;
 	NSString *jsonString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
 	if (!jsonString) {
