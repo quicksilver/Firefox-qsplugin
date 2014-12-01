@@ -180,7 +180,7 @@
 		0259C573FE90428111CA0C5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 			};
 			buildConfigurationList = 7F07AFFE085E433100E2AFC4 /* Build configuration list for PBXProject "QSFirefoxPlugIn" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -250,6 +250,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827851476E16D0056CE09 /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -269,6 +270,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E6827851476E16D0056CE09 /* QSPlugIn.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
