@@ -1,9 +1,6 @@
 [submodule "sqlite-amalgamation"]
 	path = sqlite-amalgamation
 	url = https://github.com/mirek/sqlite-amalgamation.git
-[submodule "JSONKit"]
-	path = JSONKit
-	url = https://github.com/johnezang/JSONKit
 [submodule "FMDB"]
 	path = FMDB
 	url = https://github.com/ccgus/fmdb.git
