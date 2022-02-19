@@ -4,6 +4,7 @@
 //
 
 #import "QSFirefoxPlugIn.h"
+#import "lz4firefox.h"
 
 @implementation QSFirefoxPlugIn
 
@@ -19,27 +20,40 @@
 - (id)resolveProxyObject:(id)proxy {
 	// reading Firefox's sessionsstore.js
     static NSString *path = nil;
-    if (!path) {
-        NSFileManager *fm = [NSFileManager defaultManager];
-        if ([fm fileExistsAtPath:[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js" stringByResolvingWildcardsInPath]]) {
-            path = [[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js" stringByResolvingWildcardsInPath] retain];
-        } else if ([fm fileExistsAtPath:[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore-backups/recovery.js" stringByResolvingWildcardsInPath]]) {
-            path = [[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore-backups/recovery.js" stringByResolvingWildcardsInPath] retain];
-        }
-    }
+	
+	if (!path) {
+		NSFileManager *fm = [NSFileManager defaultManager];
+		NSArray *fs = @[@"~/Library/Application Support/Firefox/Profiles/*/sessionstore-backups/recovery.jsonlz4",
+						@"~/Library/Application Support/Firefox/Profiles/*/sessionstore.js",
+						@"~/Library/Application Support/Firefox/Profiles/*/sessionstore-backups/recovery.js"];
+		for (NSString *p in fs) {
+			NSString *resolved = [p stringByResolvingWildcardsInPath];
+			if ([fm fileExistsAtPath:resolved]) {
+				path = [resolved retain];
+				break;
+			}
+		}
+	}
+
     if (!path) {
         QSShowAppNotifWithAttributes(@"QSFirefoxPlugin", NSLocalizedStringForThisBundle(@"Unable to locate Session Store", @"notif title"), NSLocalizedStringForThisBundle(@"Unable to locate the Session Store file for Firefox", @"notif message"));
         return nil;
     }
-	NSError *err;
-	NSString *jsonString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&err];
-	if (!jsonString) {
-		NSLog(@"Error when reading file: %@", err);
+	NSData *jsonData = nil;
+	NSError *err = nil;
+
+	if ([[path pathExtension] isEqualToString:@"jsonlz4"]) {
+		jsonData = readlz4(path);
+	} else {
+		jsonData = [NSData dataWithContentsOfFile:path];
 	}
 	
+	if (!jsonData) {
+		NSLog(@"Error when reading file: %@", err);
+	}
 	// parsing JSON
-	NSDictionary *sessionstore = [jsonString objectFromJSONString];
-	
+	NSDictionary *sessionstore = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&err];
+		
 	// traversing JSON path to current web page
 	NSArray *windows = [sessionstore objectForKey:@"windows"];
 	int selectedWindow =[[sessionstore objectForKey:@"selectedWindow"] intValue];
@@ -89,7 +103,7 @@
 					   "FROM moz_historyvisits AS history "
 					   "LEFT JOIN moz_places AS places ON places.id = history.place_id "
 					   "ORDER BY visit_date DESC "
-					   "LIMIT %d", 
+					   "LIMIT %d;",
 					   [[settings objectForKey:@"historySize"] intValue]];
 
 	return [QSFirefoxPlacesParser executeSql:query onFile:path];
@@ -117,11 +131,12 @@
 	
 	// open places.sqlite DB
 	FMDatabase *db = [FMDatabase databaseWithPath:tempPath];
-	if (![db open]) {
+	if (![db openWithFlags:0x00000001]) { // 1 = SQLITE_OPEN_READONLY
 		NSLog(@"Could not open Firefox's places.sqlite DB.");
 		return objects;
 	}
-	
+	[db goodConnection];
+
 	// execute SQL query
 	FMResultSet *rs = [db executeQuery:query];
 	if ([db hadError]) {
