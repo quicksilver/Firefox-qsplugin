@@ -1,36 +1,33 @@
 ### Firefox Plugin
 
-This plugin gives you access to your Firefox bookmarks and history for more recent Firefox versions (3.0 and later). It also provides a "Current Web Page (Firefox)" proxy object.
+This plugin allows you to search your Firefox bookmarks and history directly from Quicksilver. It also provides a "Current Web Page (Firefox)" proxy object - allowing you to easily manipulate the current Firefox Web Page.
 
-This plugin adds a "Firefox" catalog group, with "Firefox Bookmarks" and "Firefox History" as subentries.
+#### Catalog Entries
+
+Under the **Firefox** entry, you will find the following two subentries:
 
 **Firefox Bookmarks** includes all the URLs you bookmarked, without any folder structure or tags you might have applied.
 
-**Firefox History** contains the last 200 URLs you visited.
+**Firefox History** contains the last 200 URLs you visited (disabled by default).
 
-This is disabled by default, but can be enabled easily in the catalog section of the preferences.
+Tip: if you want to increase or decrease the number of History items in Quicksilver, you can:
+1. Go to `~/Library/Application Support/Quicksilver/PlugIns/`
+2. find `com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin`
+3. right-click -> "Show Package Contents"
+4. then open `Contents/Info.plist`
+5. In there, find the entry  `QSPresetAdditions -> Item 0 -> children -> Item 1 -> settings -> historySize`
+6. Change the number to something different.
+7. Restart Quicksilver and rescan the catalog
 
-The history is limited to the most recent 200 URLs, so the Quicksilver catalog doesn't get too large.
-With too many items in the catalog, Quicksilver slows down considerably.
 
-If this isn't enough of your browsing history and Quicksilver still feels fast enough, you can change this number. Currently there is no user interface for it, but you can change it manually. Got to:
-
-* Go to `~/Library/Application Support/Quicksilver/PlugIns/`
-* find `com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin`
-* right-click -> "Show Package Contents"
-* then open `Contents/Info.plist`
-* In there, find the entry  `QSPresetAdditions -> Item 0 -> children -> Item 1 -> settings -> historySize`
-* change the number to something different.
-
-After restarting Quicksilver and rescanning the catalog, the new settings will be applied. Sorry for the inconvenience. Maybe there'll be a user interface for that in the future.
+#### Proxy Objects
 
 **Current Web Page (Firefox)**
 
-The plugin also adds a proxy object that contains the webpage you have currently open in Firefox.
-It's called "**Current Web Page (Firefox)**" and works just like the one for Safari.
-One limitation though: There might be a slight delay. Firefox only updates this information every few seconds (every 15 seconds by default, I believe), and the proxy object only has access to this delayed information. For me, this was rarely a problem. But if you really need to reduce this delay, you can do this by changing a hidden preference in Firefox.
-To do this:
+The **Current Web Page (Firefox)** proxy object contains the title and URL of the webpage currently open in Firefox.
 
-* type  `about:config` in Firefox's address bar. (You'll get to a page where you can modify all kinds of weird options for Firefox. Don't mess with them, unless you know what you are doing!)
-* Now type `sessionstore.interval` in the filter-field.
-* The  `browser.sessionstore.interval` value is in milliseconds. Change it to something smaller. But making it too small might slow down Firefox. So be careful!
+Tip: Firefox updates the 'current webpage' information about every 15 seconds. If you encounter delays between getting the latest webpage information, you can shorten the delayby changing a hidden preference in Firefox:
+
+1. Type  `about:config` in Firefox's address bar.
+2. Type `sessionstore.interval` in the filter-field.
+3. The  `browser.sessionstore.interval` value is in milliseconds. Change it to something smaller, like 10000 or 5000
