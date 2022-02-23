@@ -1,6 +1,3 @@
-[submodule "sqlite-amalgamation"]
-	path = sqlite-amalgamation
-	url = https://github.com/mirek/sqlite-amalgamation.git
 [submodule "FMDB"]
 	path = FMDB
 	url = https://github.com/ccgus/fmdb.git
