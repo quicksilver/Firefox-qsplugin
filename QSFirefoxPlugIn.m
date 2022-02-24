@@ -85,7 +85,7 @@
 						"LEFT JOIN moz_places AS places ON places.id = bookmarks.fk "
 						"WHERE bookmarks.fk IS NOT NULL "
 						"AND bookmarks.title IS NOT NULL "
-						"ORDER BY bookmarks.title";
+						"ORDER BY bookmarks.title;";
 	
 	return [QSFirefoxPlacesParser executeSql:query onFile:path];
 }
@@ -151,7 +151,7 @@
 		title = [rs stringForColumn:@"title"];
 		url = [rs stringForColumn:@"url"];
 		
-		newObject = [QSObject URLObjectWithURL:url title:title];
+		[newObject = [[QSObject alloc] initWithURL:url title:title];
 		[objects addObject:newObject];
 	}
 	
