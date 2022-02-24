@@ -151,7 +151,7 @@
 		title = [rs stringForColumn:@"title"];
 		url = [rs stringForColumn:@"url"];
 		
-		[newObject = [[QSObject alloc] initWithURL:url title:title];
+		newObject = [[QSObject alloc] initWithURL:url title:title];
 		[objects addObject:newObject];
 	}
 	
