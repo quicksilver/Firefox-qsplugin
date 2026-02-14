@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.0</string>
+	<string>1.2.1</string>
 	<key>CFBundleVersion</key>
-	<string>C3</string>
+	<string>C4</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014, QSApp.</string>
+	<string>Copyright © 2026, QSApp.</string>
 	<key>QSPlugIn</key>
 	<dict>
 		<key>author</key>
@@ -35,7 +35,7 @@
 		<string>Bookmarks &amp; History for Firefox</string>
 		<key>extendedDescription</key>
 		<string>&lt;h3&gt;Firefox Plugin&lt;/h3&gt;
-&lt;p&gt;This plugin allows you to search your Firefox bookmarks and history directly from Quicksilver. It also provides a "Current Web Page (Firefox)" proxy object - allowing you to easily manipulate the current Firefox Web Page.&lt;/p&gt;
+&lt;p&gt;This plugin allows you to search your Firefox bookmarks and history directly from Quicksilver. It also provides a &quot;Current Web Page (Firefox)&quot; proxy object - allowing you to easily manipulate the current Firefox Web Page.&lt;/p&gt;
 &lt;h4&gt;Firefox App →&lt;/h4&gt;
 &lt;p&gt;You can &lt;code&gt;→&lt;/code&gt; right arrow in to the Firefox.app application to show a list of History, Bookmarks and Current Web page. This may be more convenient than adding all your Firefox entries to your catalog.&lt;/p&gt;
 &lt;h4&gt;Catalog Entries&lt;/h4&gt;
@@ -47,9 +47,9 @@
 &lt;h4&gt;Proxy Objects&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;Current Web Page (Firefox)&lt;/strong&gt; proxy object contains the title and URL of the webpage currently open in Firefox.&lt;/p&gt;
-&lt;p&gt;Tip: Firefox updates the 'current webpage' information about every 15 seconds. If you encounter delays between getting the latest webpage information, you can shorten the delayby changing a hidden preference in Firefox:&lt;/p&gt;
+&lt;p&gt;Tip: Firefox updates the &apos;current webpage&apos; information about every 15 seconds. If you encounter delays between getting the latest webpage information, you can shorten the delayby changing a hidden preference in Firefox:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Type  &lt;code&gt;about:config&lt;/code&gt; in Firefox's address bar.&lt;/li&gt;
+&lt;li&gt;Type  &lt;code&gt;about:config&lt;/code&gt; in Firefox&apos;s address bar.&lt;/li&gt;
 &lt;li&gt;Type &lt;code&gt;sessionstore.interval&lt;/code&gt; in the filter-field.&lt;/li&gt;
 &lt;li&gt;The  &lt;code&gt;browser.sessionstore.interval&lt;/code&gt; value is in milliseconds. Change it to something smaller, like 10000 or 5000&lt;/li&gt;
 &lt;/ol&gt;</string>
