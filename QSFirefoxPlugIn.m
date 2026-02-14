@@ -69,6 +69,65 @@
 	return [QSObject URLObjectWithURL:url title:title];
 }
 
+# pragma mark Firefox right arrow
+
+- (BOOL)loadChildrenForObject:(QSObject *)object {
+	if ([object isProxyObject]) {
+		return NO;
+	}
+	// Right-arrowing into the Firefox application
+	if ([[object primaryType] isEqualToString:QSFilePathType] &&
+		[[[NSBundle bundleWithPath:[object singleFilePath]] bundleIdentifier] isEqualToString:@"org.mozilla.firefox"]) {
+		[object setChildren:[self firefoxObjects]];
+		return YES;
+	}
+
+	// Right-arrowing into a Firefox child (Bookmarks or History)
+	NSString *catalogID = [object objectForType:@"qs.firefox.source"];
+	if (catalogID) {
+		QSCatalogEntry *entry = [QSLib entryForID:catalogID];
+		if (entry) {
+			NSArray *children = [entry scanAndCache];
+			if (children) {
+				[object setChildren:children];
+				return YES;
+			}
+		}
+		return NO;
+	}
+
+	return NO;
+}
+
+- (BOOL)objectHasChildren:(QSObject *)object {
+	return YES;
+}
+
+- (NSArray *)firefoxObjects {
+	NSMutableArray *objects = [NSMutableArray arrayWithCapacity:3];
+
+	
+	QSObject *history = [QSObject makeObjectWithIdentifier:@"QSFirefoxHistoryChild"];
+	[history setName:@"Firefox History"];
+	[history setPrimaryType:@"qs.firefox.source"];
+	[history setObject:@"QSPresetFirefoxHistory" forType:@"qs.firefox.source"];
+	[history setIcon:[QSResourceManager imageNamed:@"org.mozilla.firefox"]];
+	[objects addObject:history];
+
+	QSObject *bookmarks = [QSObject makeObjectWithIdentifier:@"QSFirefoxBookmarksChild"];
+	[bookmarks setName:@"Firefox Bookmarks"];
+	[bookmarks setPrimaryType:@"qs.firefox.source"];
+	[bookmarks setObject:@"QSPresetFirefoxBookmarks" forType:@"qs.firefox.source"];
+	[bookmarks setIcon:[QSResourceManager imageNamed:@"org.mozilla.firefox"]];
+	[objects addObject:bookmarks];
+
+	QSObject *currentPage = [QSProxyObject proxyWithIdentifier:@"QSFirefoxCurrentWebPageProxy"];
+	if (currentPage) {
+		[objects addObject:currentPage];
+	}
+
+	return objects;
+}
 
 @end
 
@@ -97,6 +156,12 @@
 }
 
 - (NSArray *)objectsFromPath:(NSString *)path withSettings:(NSDictionary *)settings {
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	NSInteger limit = [[settings objectForKey:@"historySize"] intValue];
+	if ([ud integerForKey:@"FirefoxSearchHistoryLimit"] > 0) {
+		limit = [ud integerForKey:@"FirefoxSearchHistoryLimit"];
+	}
+	
 	NSString *query = [NSString stringWithFormat:@"SELECT DISTINCT "
 					   "places.title AS title, "
 					   "places.url AS url "
@@ -104,7 +169,7 @@
 					   "LEFT JOIN moz_places AS places ON places.id = history.place_id "
 					   "ORDER BY visit_date DESC "
 					   "LIMIT %d;",
-					   [[settings objectForKey:@"historySize"] intValue]];
+					   limit];
 
 	return [QSFirefoxPlacesParser executeSql:query onFile:path];
 }

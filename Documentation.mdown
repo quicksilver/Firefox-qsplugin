@@ -2,6 +2,10 @@
 
 This plugin allows you to search your Firefox bookmarks and history directly from Quicksilver. It also provides a "Current Web Page (Firefox)" proxy object - allowing you to easily manipulate the current Firefox Web Page.
 
+#### Firefox App →
+
+You can `→` right arrow in to the Firefox.app application to show a list of History, Bookmarks and Current Web page. This may be more convenient than adding all your Firefox entries to your catalog.
+
 #### Catalog Entries
 
 Under the **Firefox** entry, you will find the following two subentries:
@@ -10,14 +14,8 @@ Under the **Firefox** entry, you will find the following two subentries:
 
 **Firefox History** contains the last 200 URLs you visited (disabled by default).
 
-Tip: if you want to increase or decrease the number of History items in Quicksilver, you can:
-1. Go to `~/Library/Application Support/Quicksilver/PlugIns/`
-2. find `com.blacktree.quicksilver.QSFirefoxPlugin.*.qsplugin`
-3. right-click -> "Show Package Contents"
-4. then open `Contents/Info.plist`
-5. In there, find the entry  `QSPresetAdditions -> Item 0 -> children -> Item 1 -> settings -> historySize`
-6. Change the number to something different.
-7. Restart Quicksilver and rescan the catalog
+Tip: you can change the number of History items Quicksilver adds by changing the `FirefoxSearchHistoryLimit` from Terminal:
+`defaults write com.blacktree.Quicksilver FirefoxSearchHistoryLimit 500` (sets the limit to 500).
 
 
 #### Proxy Objects
